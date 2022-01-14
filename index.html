@@ -10,6 +10,23 @@
 <body>
     <div id="root">
 
+        <div class="container">
+
+            <div class="content" id="content">
+                <img v-for="(elemento, index) in photos" :src="photos[index].img" v-show="contatore(index)">
+                <div class="imginfo">
+                    <div v-for="(elemento, index) in photos" v-show="contatore(index)" class="title" id="title">{{photos[index].title}}</div>
+                    <div v-for="(elemento, index) in photos" class="subtitle" id="subtitle" v-show="contatore(index)">{{photos[index].subtitle}}</div>
+                </div>
+            </div>
+
+            <div class="prev" id="prev">
+                <img v-for="(elemento, index) in photos" :src="photos[index].img" @click="prevclick(index)"  :class="prevselected(index)">
+                    <div class="up" @click="counterup()">&and;</div>
+                    <div class="down" @click="counterdown()">&or;</div>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
