@@ -31,7 +31,11 @@ let app = new Vue({
 		],
 		
 		counter:0,
+		scorri : null
 		
+	},
+	mounted: function(){
+		this.autoplay()
 	},
 	methods: {
 		contatore: function(index){
@@ -64,10 +68,16 @@ let app = new Vue({
 		},
 		prevclick: function(index){
 			this.counter = index;
+		},
+		autoplay: function(){
+			this.scorri = setInterval(this.counterup,3000)
+		},
+		stopautoplay: function(){
+			clearInterval(this.scorri)
+			this.scorri = null;
 		}
     }
 });
-
 Vue.config.devtools = true
 
 

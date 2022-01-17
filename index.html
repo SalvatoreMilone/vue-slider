@@ -21,7 +21,7 @@
             </div>
 
             <div class="prev" id="prev">
-                <img v-for="(elemento, index) in photos" :src="photos[index].img" @click="prevclick(index)"  :class="prevselected(index)">
+                <img v-for="(elemento, index) in photos" :src="photos[index].img" @click="prevclick(index)"  :class="prevselected(index)" v-on:mouseover="stopautoplay()" v-on:mouseleave="autoplay()">
                     <div class="up" @click="counterup()">&and;</div>
                     <div class="down" @click="counterdown()">&or;</div>
             </div>
